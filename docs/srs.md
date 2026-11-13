@@ -217,7 +217,7 @@ Prioridad: **Alta** (sin esto el juego no funciona), **Media** (importante), **B
 
 ### 3.4 Revisión con el checklist
 
-Cada requerimiento debe cumplir los seis criterios. **El equipo debe revisar cada fila y marcarla** (☐ → ✅) cuando los dos estén de acuerdo.
+Cada requerimiento debe cumplir los seis criterios.
 
 | ID | Correcto | No ambiguo | Completo | Consistente | Factible | Verificable |
 |---|---|---|---|---|---|---|

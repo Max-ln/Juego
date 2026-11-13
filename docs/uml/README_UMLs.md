@@ -1,189 +1,48 @@
-# Turno de Guardacostas — Documentación UML
+# Arquitectura UML — Turno de Guardacostas
 
-Bienvenido a la documentación de arquitectura y diseño de **Turno de Guardacostas**. Este documento explica los diagramas UML que definen el comportamiento funcional y la estructura interna del juego, sirviendo como guía de referencia para el equipo de desarrollo.
-
----
-
-## Índice
-1. [Visión General del Sistema](#visión-general-del-sistema)
-2. [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
-   - [Guía de lectura y elementos](#guía-de-lectura-y-elementos)
-   - [Catálogo de Casos de Uso y Requerimientos](#catálogo-de-casos-de-uso-y-requerimientos)
-   - [Procesos automáticos del sistema](#procesos-automáticos-del-sistema)
-3. [Diagrama de Clases](#diagrama-de-clases)
-   - [Guía de lectura y relaciones](#guía-de-lectura-y-relaciones)
-   - [Decisiones clave de arquitectura](#decisiones-clave-de-arquitectura)
+Este documento explica el propósito, la lógica y la relación entre los dos diagramas UML que definen el diseño de **Turno de Guardacostas**: el [Diagrama de Casos de Uso](casos-de-uso.md) y el [Diagrama de Clases](diagrama-de-clases.md).
 
 ---
 
-## Visión General del Sistema
+## 1. Visión General: ¿Cómo se conectan ambos diagramas?
 
-**Turno de Guardacostas** es un videojuego educativo centrado en la limpieza y preservación marina. Los diagramas presentados aquí modelan el proyecto desde dos perspectivas complementarias:
-- **Perspectiva Funcional (`casos-de-uso.md`):** Qué puede hacer el jugador dentro del sistema y cómo se relaciona con los requerimientos funcionales (`docs/SRS.md`).
-- **Perspectiva Estructural (`diagrama-de-clases.md`):** Cómo se construirá el código, qué entidades existen, qué datos almacenan y cómo interactúan entre sí.
+Ambos modelos representan las dos caras del mismo sistema:
 
----
-
-## Diagrama de Casos de Uso
-
-Este diagrama delimita las interacciones directas entre el usuario y el videojuego.
-
-```mermaid
-flowchart LR
-    J([Jugador])
-    subgraph S["Turno de Guardacostas"]
-        U1((Iniciar partida))
-        U2((Seleccionar herramienta))
-        U3((Limpiar plástico con la red))
-        U4((Contener mancha con la barrera))
-        U5((Absorber hidrocarburo))
-        U6((Consultar salud del mar))
-        U7((Leer ficha educativa))
-        U8((Avanzar de nivel))
-    end
-    J --- U1
-    J --- U2
-    J --- U3
-    J --- U4
-    J --- U5
-    J --- U6
-    J --- U8
-    U3 -.->|incluye| U2
-    U4 -.->|incluye| U2
-    U5 -.->|incluye| U2
-    U8 -.->|incluye| U7
-```
-
-### Guía de lectura y elementos
-* **Actor (`Jugador`):** Representado por el óvalo exterior. Es el único rol humano en el sistema (no existen cuentas de administrador ni perfiles guardados en servidor).
-* **Límites del sistema (`Turno de Guardacostas`):** El recuadro engloba todas las acciones que ejecuta el software.
-* **Casos de uso (Círculos):** Acciones concretas que el jugador puede iniciar o experimentar.
-* **Asociación (Línea continua):** Indica participación directa del jugador en esa acción.
-* **Relación `<<include>>` (Línea punteada):** Indica dependencia obligatoria. Por ejemplo, para ejecutar cualquier acción de limpieza (`U3`, `U4`, `U5`), es requisito previo haber ejecutado *Seleccionar herramienta* (`U2`). Del mismo modo, *Avanzar de nivel* (`U8`) siempre desencadena *Leer ficha educativa* (`U7`).
-
-### Catálogo de Casos de Uso y Requerimientos
-
-| Caso de uso | Acción del jugador | Requerimiento vinculado |
-| :--- | :--- | :---: |
-| **Iniciar partida** | Pulsa el botón "Jugar" en el menú principal. | `RF-01` |
-| **Seleccionar herramienta** | Elige entre red, barrera o absorbente en la barra inferior. | `RF-03` |
-| **Limpiar plástico con la red** | Hace clic sobre un residuo plástico teniendo la red equipada. | `RF-04` |
-| **Contener mancha con la barrera** | Coloca una barrera sobre un derrame para frenar su expansión. | `RF-05` |
-| **Absorber hidrocarburo** | Aplica material absorbente para reducir el tamaño de la mancha. | `RF-05` |
-| **Consultar salud del mar** | Monitorea el indicador visual de salud para priorizar amenazas. | `RF-07` |
-| **Leer ficha educativa** | Visualiza el dato ecológico real al finalizar un nivel. | `RF-08` |
-| **Avanzar de nivel** | Cierra la ficha educativa para dar paso al siguiente escenario. | `RF-09` |
-
-### Procesos automáticos del sistema
-Existen mecánicas definidas en el SRS que **no aparecen como casos de uso** porque son ejecutadas de forma autónoma por el motor del juego sin intervención del jugador:
-1. **Generación de residuos:** Los barcos arrojan contaminación periódicamente (`RF-02`).
-2. **Penalizaciones:** El sistema resta salud o puntos si se usa la herramienta incorrecta sobre un residuo (`RF-06`).
-3. **Comportamiento de la fauna:** Los animales aparecen o desaparecen dinámicamente según el nivel de salud del ecosistema (`RF-10`).
+* **El qué (Comportamiento):** El [Diagrama de Casos de Uso](casos-de-uso.md) define el alcance funcional desde la perspectiva externa. Responde a la pregunta: *¿Qué puede hacer el usuario con el juego?*
+* **El cómo (Estructura):** El [Diagrama de Clases](diagrama-de-clases.md) traduce esas interacciones en una arquitectura interna de software orientada a objetos. Responde a la pregunta: *¿Qué piezas de código existen y cómo colaboran para hacer posible lo anterior?*
 
 ---
 
-## Diagrama de Clases
+## 2. Explicación del Diagrama de Casos de Uso (`casos-de-uso.md`)
 
-Este diagrama detalla la arquitectura orientada a objetos del juego completo, especificando atributos (datos) y métodos (comportamientos).
+Este diagrama delimita la frontera entre el usuario y el sistema:
 
-```mermaid
-classDiagram
-    class Juego {
-        -puntaje: int
-        -nivelActual: int
-        -estado: string
-        +iniciar()
-        +pausar()
-        +terminar()
-        +avanzarNivel()
-    }
-    class Nivel {
-        -numero: int
-        -duracion: int
-        -intervaloBarcos: int
-        -hayHidrocarburo: bool
-        +iniciar()
-        +terminar()
-    }
-    class Barco {
-        -posicionX: int
-        -velocidad: int
-        +moverse()
-        +soltarResiduo()
-    }
-    class Residuo {
-        <<abstract>>
-        -posicionX: int
-        -posicionY: int
-        +esLimpiadoPor(herramienta) bool
-    }
-    class Plastico {
-        +desaparecer()
-    }
-    class Hidrocarburo {
-        -tamano: int
-        -velocidadExpansion: int
-        -contenido: bool
-        +expandirse()
-        +reducir(porcentaje)
-        +contener(segundos)
-    }
-    class Herramienta {
-        <<abstract>>
-        -nombre: string
-        +usar(residuo)
-    }
-    class Red
-    class BarreraContencion
-    class MaterialAbsorbente
-    class Jugador {
-        -herramientaActiva: Herramienta
-        +seleccionarHerramienta(nombre)
-        +usarHerramienta(residuo)
-    }
-    class SaludDelMar {
-        -valor: int
-        +disminuir(cantidad)
-        +recuperar(cantidad)
-        +estaEnCero() bool
-    }
-    class Fauna {
-        -tipo: string
-        -visible: bool
-        +actualizar(salud)
-    }
-    class FichaEducativa {
-        -titulo: string
-        -texto: string
-        -fuente: string
-        +mostrar()
-    }
+* **Un único actor (`Jugador`):** No existen roles secundarios, administradores ni sistemas externos. Toda la interacción parte de una sola persona.
+* **Dependencias obligatorias (`<<include>>`):** El diagrama establece reglas de flujo estrictas. Ninguna acción de limpieza (`Limpiar plástico`, `Contener mancha`, `Absorber hidrocarburo`) puede ejecutarse de forma aislada; todas dependen obligatoriamente de haber ejecutado antes `Seleccionar herramienta`. De igual forma, `Avanzar de nivel` fuerza siempre la ejecución de `Leer ficha educativa`.
+* **Frontera del sistema (Lo que queda fuera):** El diagrama excluye deliberadamente procesos como la generación de basura por los barcos, el cálculo de penalizaciones o el comportamiento de la fauna. En UML, los casos de uso solo modelan acciones iniciadas por un actor o que le devuelven un valor directo; los procesos internos autónomos pertenecen a la lógica del motor.
 
-    Juego "1" *-- "3" Nivel
-    Juego "1" *-- "1" SaludDelMar
-    Juego "1" --> "1" Jugador
-    Nivel "1" o-- "*" Barco
-    Nivel "1" --> "1" FichaEducativa
-    Barco "1" --> "*" Residuo : suelta
-    Residuo <|-- Plastico
-    Residuo <|-- Hidrocarburo
-    Herramienta <|-- Red
-    Herramienta <|-- BarreraContencion
-    Herramienta <|-- MaterialAbsorbente
-    Jugador "1" --> "3" Herramienta : dispone de
-    Herramienta ..> Residuo : actúa sobre
-    SaludDelMar "1" --> "*" Fauna : actualiza
-```
+---
 
-### Guía de lectura y relaciones
-* **Visibilidad (`-` / `+`):** El signo `-` indica atributos o métodos **privados** (encapsulados dentro de la clase), mientras que `+` indica elementos **públicos** accesibles por otras clases.
-* **Clases Abstractas (`<<abstract>>`):** Plantillas base que no se instancian directamente (`Residuo` y `Herramienta`), diseñadas para definir contratos comunes.
-* **Herencia (`<|--`):** Relación *"es un tipo de"*. Por ejemplo, `Plastico` e `Hidrocarburo` heredan coordenadas y lógica base de `Residuo`, pero implementan sus propios comportamientos.
-* **Composición (`*--`):** Relación de propiedad fuerte. `Juego` está compuesto por `3` instancias de `Nivel` y `1` de `SaludDelMar`. Si la partida se destruye, estos objetos también.
-* **Agregación (`o--`):** Relación de contención débil. Un `Nivel` gestiona múltiples instancias de `Barco`, los cuales operan con ciclo de vida independiente durante la partida.
-* **Asociación (`-->`) y Dependencia (`..>`):** Indican comunicación entre clases. Por ejemplo, `Herramienta` depende temporalmente de `Residuo` al momento de ejecutar `usar(residuo)`, sin almacenar una referencia permanente a él.
+## 3. Explicación del Diagrama de Clases (`diagrama-de-clases.md`)
 
-### Decisiones clave de arquitectura
-1. **Polimorfismo en Residuos y Herramientas:** Se optó por dos jerarquías paralelas para facilitar la escalabilidad. Si en el futuro se añade un nuevo contaminante (ej. redes fantasma), basta con heredar de `Residuo` sin modificar la lógica central del `Juego`.
-2. **Centralización de la condición de derrota:** La clase `SaludDelMar` encapsula la métrica crítica del ecosistema (`estaEnCero()`), evitando que la lógica de fin de juego quede dispersa entre niveles o residuos.
-3. **Desacoplamiento de la Fauna:** `SaludDelMar` notifica a `Fauna` (`actualizar(salud)`), y no a la inversa. Esto garantiza que el sistema visual de animales (`RF-10`, de prioridad baja) pueda modificarse o desactivarse sin comprometer las mecánicas principales de limpieza.
+Este diagrama modela la estructura estática del código y cómo se materializan los casos de uso en entidades de software:
+
+* **Núcleo y ciclo de vida (Composición `*--`):** La clase `Juego` actúa como el controlador central. Posee una relación de composición fuerte con exactamente `3` instancias de `Nivel` y `1` de `SaludDelMar`. Si la partida se destruye, estos elementos desaparecen con ella.
+* **Polimorfismo y extensibilidad (Herencia `<|--`):** 
+  * **`Residuo`:** Define el contrato base (posición y verificación de limpieza) del cual heredan `Plastico` e `Hidrocarburo`. Esto permite que el sistema trate a ambos como amenazas genéricas, pero delegue sus comportamientos únicos (por ejemplo, solo el hidrocarburo puede expandirse o ser contenido).
+  * **`Herramienta`:** Abstrae las acciones de limpieza. `Jugador` tiene acceso a `3` herramientas y las aplica sobre cualquier `Residuo` sin necesidad de conocer su implementación interna.
+* **Desacoplamiento por diseño:**
+  * **Control de derrota:** `SaludDelMar` centraliza el estado vital del océano, evitando que la lógica de fin de juego quede repartida entre los niveles o los residuos.
+  * **Bajo acoplamiento visual:** `Fauna` observa a `SaludDelMar` en una sola dirección (`-->`). La salud del mar no sabe que la fauna existe, lo que permite modificar o eliminar los elementos visuales del ecosistema sin romper la mecánica principal del juego.
+* **Objetos dinámicos (Agregación `o--`):** Un `Nivel` agrupa múltiples instancias de `Barco`, los cuales a su vez instancian y sueltan objetos `Residuo` en tiempo de ejecución.
+
+---
+
+## 4. Trazabilidad entre Diagramas
+
+| Acción en Casos de Uso | Materialización en el Diagrama de Clases |
+| :--- | :--- |
+| **Iniciar / Avanzar de nivel** | `Juego` gestiona el cambio de estado mediante `iniciar()` y `avanzarNivel()`, coordinando las instancias de `Nivel` y disparando `FichaEducativa.mostrar()`. |
+| **Seleccionar herramienta** | `Jugador` actualiza su atributo `herramientaActiva` eligiendo entre `Red`, `BarreraContencion` o `MaterialAbsorbente`. |
+| **Limpiar / Contener / Absorber** | `Jugador.usarHerramienta(residuo)` delega la acción a `Herramienta.usar(residuo)`, ejecutando `esLimpiadoPor()` en `Plastico` o métodos específicos como `contener()` y `reducir()` en `Hidrocarburo`. |
+| **Consultar salud del mar** | Lectura del estado de `SaludDelMar`, el cual se modifica mediante `disminuir()` o `recuperar()` y notifica indirectamente a `Fauna.actualizar(salud)`. |

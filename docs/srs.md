@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Versión** | 1.0 (borrador) |
+| **Versión** | 3.0 |
 | **Fecha** | 13 de noviembre de 2026 |
 | **Autores** | Maximiliano García Espinoza y Jonathan Oswaldo Vázquez Moreno |
 | **Plantilla** | Estructura de IEEE 830 (secciones 1 a 3), ver `investigacion-srs.md` |

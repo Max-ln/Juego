@@ -52,7 +52,7 @@ Se buscaron juegos y recursos educativos sobre contaminación marina, con mecán
 - **Qué es:** artículo académico que presenta un juego sobre el océano y evalúa su uso en tres sesiones con estudiantes de preparatoria en Noruega.
 - **Por qué importa:** argumenta que los juegos serios pueden ayudar a que el público conozca el océano y que ofrecen una experiencia inmersiva e interactiva que la enseñanza tradicional puede no dar. Respalda la decisión de enseñar mediante un juego.
 - **Qué tomamos:** su justificación del enfoque educativo.
-- **Fuente:** artículo en Cambridge Core. [COMPLETAR autores, año y título; abrir y leer antes de citar]
+- **Fuente:** artículo en Cambridge Core. Rachel Tiller, Ina Helene Ahlquist, Håvard Almås, Emily Cowan, Dorothy Dankel and Magnus Hakvåg. 22 November 2024. *Ocean literacy and how serious games can play a part: the case of the jellyfish and the microplastics governance game MoreGoJelly!*.
 
 ### Resumen de lo aprendido
 
@@ -67,7 +67,7 @@ Se buscaron juegos y recursos educativos sobre contaminación marina, con mecán
 **Conclusiones:**
 - Los juegos de este tipo se pueden construir con una sola interacción, el clic.
 - Los mejores combinan la acción con un mensaje educativo corto (ficha, pantalla de información o mensaje final).
-- Ninguno de los referentes encontrados combina varias herramientas según el tipo de residuo, y esa es la parte que distingue a Turno de Guardacostas. [VERIFICAR: afirmación basada en los cinco referentes revisados, no en una búsqueda exhaustiva]
+- Ninguno de los referentes encontrados combina varias herramientas según el tipo de residuo, y esa es la parte que distingue a Turno de Guardacostas.
 
 ---
 

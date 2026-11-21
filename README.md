@@ -31,7 +31,3 @@ Muestra **de qué piezas se construye el juego**: `Juego`, `Nivel`, `Barco`, `Re
 3. El **diagrama de clases** muestra cómo se organizará el código para cumplirlos.
 
 La tabla de trazabilidad de la sección 3.5 del SRS enlaza cada requerimiento con su caso de uso y sus clases.
-
-## Gestión del trabajo
-
-Cada requerimiento funcional (RF-01 a RF-10) es un Issue en este repositorio, con su ID en el título, un responsable y un lugar en el tablero de GitHub Projects "Juego".

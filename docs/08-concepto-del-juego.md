@@ -68,7 +68,7 @@ Dato de apoyo: uno de los referentes revisados (Ocean Odyssey, de NOAA) está pe
 | **Tono** | Serio pero accesible. Urgente sin ser dramático |
 | **Mensaje** | Positivo: el jugador es parte de la solución, no el culpable |
 | **Lenguaje** | Frases cortas, sin tecnicismos; el término técnico se explica la primera vez |
-| **Contenido** | Imágenes crudas: la fauna que se ve afectada se muestra herida |
+| **Contenido** | Sin imágenes crudas: la fauna afectada no se muestra herida; se muestra alejándose, en menor cantidad y con colores apagados. |
 | **Visual** | 2D, colores del mar y alto contraste en los residuos para distinguirlos |
 | **Sonido** | Opcional. Si se incluye, de licencia libre |
 
@@ -81,8 +81,6 @@ Las metas se citan de forma resumida. **Confirmar la redacción exacta en la pá
 | **14 — Vida submarina** | 14.1 (reducir la contaminación marina) y 14.2 (proteger los ecosistemas marinos) | La limpieza es la mecánica central; la fauna y la salud del mar muestran el estado del océano | Que la basura y los derrames dañan la vida marina |
 | **12 — Producción y consumo responsables** | 12.4 (gestión racional de desechos) y 12.5 (reducir la generación de residuos) | Cada residuo tiene su tratamiento; las fichas explican el origen de los plásticos | Que el problema empieza en cómo se producen y gestionan los residuos |
 | **6 — Agua limpia y saneamiento** | 6.3 (mejorar la calidad del agua reduciendo la contaminación) | El hidrocarburo deteriora el agua y debe contenerse antes de que se expanda | Que la contaminación afecta la calidad del agua |
-
-**Sobre el ODS 6:** es el vínculo más débil de los tres, porque sus metas están pensadas sobre todo para el agua dulce y el saneamiento. Se mantiene porque el derrame de hidrocarburos es un caso claro de deterioro de la calidad del agua. Si en la presentación lo cuestionan, la respuesta es esa, y la alternativa es reemplazarlo por otro ODS cuyas metas encajen mejor. [DECIDIR]
 
 ## 10. Qué enseña cada nivel
 
@@ -121,6 +119,6 @@ Movimiento del jugador, mejoras con dinero, dispersantes y varios tipos de barco
 |---|---|---|
 | Nombre final del juego | Ambos | Pendiente |
 | Rango de edad (sección 4) | Ambos | Propuesto: 12 a 25 años |
-| Herramienta de desarrollo | Ambos | Pendiente |
+| Herramienta de desarrollo | Ambos | pygame-ce |
 | Estilo visual | Jonathan | Actividad 11 |
 | Datos de las fichas verificados | Maximiliano | Pendiente |

@@ -244,32 +244,7 @@ Prioridad: **Alta** (sin esto el juego no funciona), **Media** (importante), **B
 
 ---
 
-### 3.4 Revisión con el checklist
-
-Cada requerimiento debe cumplir los seis criterios. **El equipo debe revisar cada fila y marcarla** (☐ → ✅) cuando los dos estén de acuerdo.
-
-| ID | Correcto | No ambiguo | Completo | Consistente | Factible | Verificable |
-|---|---|---|---|---|---|---|
-| RF-01 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-02 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-03 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-04 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-05 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-06 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-07 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-08 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-09 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-10 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-11 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-12 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RF-13 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RNF-01 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RNF-02 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RNF-03 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RNF-04 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-| RNF-05 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
-
-### 3.5 Trazabilidad con los diagramas UML
+### 3.4 Trazabilidad con los diagramas UML
 
 | Requerimiento | Caso de uso (`docs/uml/casos-de-uso.md`) | Clases principales (`docs/uml/diagrama-de-clases.md`) |
 |---|---|---|

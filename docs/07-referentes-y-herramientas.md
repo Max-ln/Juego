@@ -105,6 +105,10 @@ Se comparan dos opciones para construir un juego 2D de clic.
 
 ---
 
+### Decisión
+
+**Herramienta elegida: pygame-ce (Python).**
+
 ## Referencias
 
 Completar con todos los datos de cada fuente al abrirla. Se agregan las fuentes oficiales de las herramientas.
